@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login Page</h2>
+      <label for="userId">Enter your Account:</label><br />
+      <input type="text" id="userId" name="userId" /><br /><br />
+      <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+      function login() {
+        var userId = document.getElementById("userId").value
+        // Simulate validation (you should implement actual validation logic)
+        if (userId.trim() === "") {
+          alert("Please enter a valid ID.")
+          return
+        }
+        if ("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" == userId.trim()) {
+          window.location.href = "admin.html"
+        } else {
+          window.location.href = "user.html"
+        }
+        // Redirect to loggedin.html after successful login
+      }
+    </script>
+  </body>
+</html>

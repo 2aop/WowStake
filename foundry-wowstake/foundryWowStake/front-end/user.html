@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+
+  <body>
+    <h1 class="centered">Welcome to WowStake</h1>
+    <div><h2>Pool List</h2></div>
+    <button id="stakeButton">stake</button>
+
+    <button id="connectButton">Connect</button>
+    <button id="poolListButton">refresh pool list</button>
+
+    <div id="pool-table-container">
+      <table id="pool-table">
+        <thead>
+          <tr>
+            <th>poolId</th>
+            <th>stTokenAddress</th>
+            <th>poolWeight</th>
+            <th>stTokenAmount (ether)</th>
+            <th>minDepositAmount (ether)</th>
+            <th>unstakeLockedBlocks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 这里将会插入 JavaScript 生成的表格行 -->
+        </tbody>
+      </table>
+    </div>
+    <div><h2>Order List</h2></div>
+
+    <button id="unstakeOrderButton">unstake my order</button>
+
+    <button id="getAllMyOrderButton">refresh my orders</button>
+
+    <div id="order-table-container">
+      <table id="order-table">
+        <thead>
+          <tr>
+            <th>poolId</th>
+            <th>orderId</th>
+            <th>stakeAmount</th>
+            <th>stakeBlock</th>
+            <th>lastRewardBlock</th>
+            <th>expectReward (ether)</th>
+            <th>valid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 这里将会插入 JavaScript 生成的表格行 -->
+        </tbody>
+      </table>
+    </div>
+
+    <div><h2>Reward List</h2></div>
+
+    <button id="getAllMyRewardsButton">refresh my rewards</button>
+
+    <div id="rewards-table-container">
+      <table id="reward-table">
+        <thead>
+          <tr>
+            <th>poolId</th>
+            <th>totalRewards (ether)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 这里将会插入 JavaScript 生成的表格行 -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- choose unstake type table-->
+    <div id="unstakeTypeChooseModal" class="overlay">
+      <div class="modal">
+        <div class="form-group">
+          <label for="unstakeTypeSelectBox">choose unstake type：</label>
+          <select id="unstakeTypeSelectBox">
+            <option value="order">order</option>
+            <option value="pool">pool</option>
+          </select>
+        </div>
+
+        <button id="unstakeTypeSubmitBtn">Confirm</button>
+        <button id="unstakeTypeCancelBtn">Cancel</button>
+      </div>
+    </div>
+    <!-- stake table-->
+    <div id="stakeModal" class="overlay">
+      <div class="modal">
+        <div class="form-group">
+          <label for="stakeSelectBox">pool id：</label>
+          <select id="stakeSelectBox"></select>
+        </div>
+        <div class="form-group">
+          <label for="input1">stake amount：</label>
+          <input type="number" id="stakeAmount" step="any" required />
+        </div>
+        <button id="stakeSubmitBtn">Confirm</button>
+        <button id="stakeCancelBtn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- unstake table by order-->
+    <div id="unstakeModal" class="overlay">
+      <div class="modal">
+        <div class="form-group">
+          <label for="unstakePoolSelectBoxForOrder">pool id：</label>
+          <select id="unstakePoolSelectBoxForOrder"></select>
+        </div>
+        <div class="form-group" id="unstakeOrderSelectGroup">
+          <label for="unstakeOrderSelectBoxForOrder">order id：</label>
+          <select id="unstakeOrderSelectBoxForOrder"></select>
+        </div>
+        <button id="unstakeSubmitBtn">Confirm</button>
+        <button id="unstakeCancelBtn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- </form> -->
+  </body>
+
+  <script src="./index.js" type="module"></script>
+</html>
+
+<style>
+  /* 可选的 CSS 样式 */
+  #pool-table-container {
+    margin-top: 20px; /* 设置顶部间距为 20 像素 */
+    margin-bottom: 20px; /* 设置顶部间距为 20 像素 */
+  }
+  #pool-table {
+    width: 100%; /* 可选：设置表格宽度为父容器宽度 */
+    border-collapse: collapse; /* 合并表格边框 */
+  }
+  #pool-table th,
+  #pool-table td {
+    border: 1px solid #ddd; /* 设置默认的单元格边框 */
+    padding: 8px; /* 可选：设置单元格内边距 */
+    text-align: left; /* 可选：设置文本对齐方式 */
+  }
+  #pool-table th {
+    font-weight: bold; /* 加粗表头文字 */
+    border: 2px solid #333; /* 设置表头边框为粗的黑色边框 */
+    background-color: #f0f0f0; /* 设置表头背景颜色 */
+    color: #333; /* 设置表头文字颜色 */
+  }
+
+  #order-table-container {
+    margin-top: 20px; /* 设置顶部间距为 20 像素 */
+    margin-bottom: 20px; /* 设置顶部间距为 20 像素 */
+  }
+  #order-table {
+    width: 100%; /* 可选：设置表格宽度为父容器宽度 */
+    border-collapse: collapse; /* 合并表格边框 */
+  }
+  #order-table th,
+  #order-table td {
+    border: 1px solid #ddd; /* 设置默认的单元格边框 */
+    padding: 8px; /* 可选：设置单元格内边距 */
+    text-align: left; /* 可选：设置文本对齐方式 */
+  }
+  #order-table th {
+    font-weight: bold; /* 加粗表头文字 */
+    border: 2px solid #333; /* 设置表头边框为粗的黑色边框 */
+    background-color: #f0f0f0; /* 设置表头背景颜色 */
+    color: #333; /* 设置表头文字颜色 */
+  }
+
+  #reward-table-container {
+    margin-top: 20px; /* 设置顶部间距为 20 像素 */
+    margin-bottom: 20px; /* 设置顶部间距为 20 像素 */
+  }
+  #reward-table {
+    width: 100%; /* 可选：设置表格宽度为父容器宽度 */
+    border-collapse: collapse; /* 合并表格边框 */
+  }
+  #reward-table th,
+  #reward-table td {
+    border: 1px solid #ddd; /* 设置默认的单元格边框 */
+    padding: 8px; /* 可选：设置单元格内边距 */
+    text-align: left; /* 可选：设置文本对齐方式 */
+  }
+  #reward-table th {
+    font-weight: bold; /* 加粗表头文字 */
+    border: 2px solid #333; /* 设置表头边框为粗的黑色边框 */
+    background-color: #f0f0f0; /* 设置表头背景颜色 */
+    color: #333; /* 设置表头文字颜色 */
+  }
+  .centered {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+  }
+
+  #poolListButton {
+    float: right; /* 将按钮向右浮动 */
+    /* 可选：设置一些样式 */
+    margin-right: 10px; /* 右边距 */
+    margin-top: 10px; /* 上边距 */
+    padding: 5px 10px; /* 内边距 */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    cursor: pointer; /* 鼠标样式为手型 */
+  }
+  #connectButton {
+    float: right; /* 将按钮向右浮动 */
+    /* 可选：设置一些样式 */
+    margin-right: 10px; /* 右边距 */
+    margin-top: 10px; /* 上边距 */
+    padding: 5px 10px; /* 内边距 */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    cursor: pointer; /* 鼠标样式为手型 */
+  }
+
+  #getAllMyOrderButton {
+    float: right; /* 将按钮向右浮动 */
+    /* 可选：设置一些样式 */
+    margin-right: 10px; /* 右边距 */
+    margin-top: 10px; /* 上边距 */
+    margin-bottom: 5px; /* 上边距 */
+
+    padding: 5px 10px; /* 内边距 */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    cursor: pointer; /* 鼠标样式为手型 */
+  }
+  #getAllMyRewardsButton {
+    float: right; /* 将按钮向右浮动 */
+    /* 可选：设置一些样式 */
+    margin-right: 10px; /* 右边距 */
+    margin-top: 10px; /* 上边距 */
+    margin-bottom: 5px; /* 上边距 */
+
+    padding: 5px 10px; /* 内边距 */
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 去掉边框 */
+    cursor: pointer; /* 鼠标样式为手型 */
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .error {
+    color: red;
+  }
+  input:invalid {
+    border: 1px solid red; /* 当输入无效时，设置边框为红色 */
+  }
+</style>
