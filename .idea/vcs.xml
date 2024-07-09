@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/abdk-libraries-solidity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/forge-std" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/forge-std/lib/ds-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/halmos-cheatcodes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/lib/erc4626-tests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/lib/forge-std" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts-upgradeable/lib/openzeppelin-contracts/lib/halmos-cheatcodes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts/lib/erc4626-tests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts/lib/forge-std" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-contracts/lib/halmos-cheatcodes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-upgrades" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-upgrades/submodules/openzeppelin-foundry-upgrades" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-upgrades/submodules/openzeppelin-foundry-upgrades/lib/forge-std" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-upgrades/submodules/openzeppelin-foundry-upgrades/lib/solidity-stringutils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/foundry-wowstake/foundry-WowStake/lib/openzeppelin-upgrades/submodules/openzeppelin-foundry-upgrades/lib/solidity-stringutils/lib/ds-test" vcs="Git" />
+  </component>
+</project>
